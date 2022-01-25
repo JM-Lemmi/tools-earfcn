@@ -2,7 +2,6 @@ FROM nginx
 
 WORKDIR /usr/share/nginx/html
 
-ADD ./earfcn.js
-ADD ./index.html
+ADD ./index.html /usr/share/nginx/html/
 
-ADD https://github.com/qvil/lte-earfcn-calculator/blob/master/build/lte-earfcn-calculator.min.js
+ADD ./lte-earfcn-calculator.min.js /usr/share/nginx/html/

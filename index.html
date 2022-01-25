@@ -3,11 +3,29 @@
 <head>
   <meta charset="utf-8">
   <title>LTE EARFCN Calculator</title>
-  <script src="./earfcn.js"></script>
+  <script>var exports = {};</script>
+  <script src="./lte-earfcn-calculator.min.js" type="module"></script>
+  <script>
+    function earfcnButton() {
+        var earfcn = document.getElementById('earfcn').value;
+        document.getElementById('freq').value = LTE.earfcnToFreq(earfcn);
+    }
+
+    function freqButton() {
+        band = document.querySelector('band').value;
+        frequency = document.querySelector('freq').value; // MHz
+        earfcn = LTE.freqToEarfcnByBand(band, frequency);
+        document.getElementById('earfcn').value = earfcn;
+    }
+
+    document.getElementById("earfcnButton").addEventListener('click', earfcnButton() );
+    document.getElementById("freqButton").addEventListener('click', freqButton() );
+
+  </script>
 </head>
 <body>
-    <p>EARFCN:</p><input id="earfcn" type="number"><input type="button" onclick="earfcnButton();">Calculate Band&Frequency</button><br>
+    <p>EARFCN:</p><input id="earfcn" type="number"><button id="earfcnButton">Calculate Band&Frequency</button><br>
     <p>Band:</p><input id="band" type="number"><br>
-    <p>Frequency:</p><input id="freq" type="number"><input type="button" onclick="freqButton();">Calculate EARFCN</button>
+    <p>Frequency:</p><input id="freq" type="number"><button id="freqButton">Calculate EARFCN</button>
 </body>
 </html>

@@ -19,8 +19,8 @@
         document.getElementById('earfcn').value = LTE.freqToEarfcnByBand(band, frequency);
     }
 
-    document.getElementById("earfcnButton").addEventListener('click', earfcnButton() );
-    document.getElementById("freqButton").addEventListener('click', freqButton() );
+    document.getElementById("earfcnButton").addEventListener('click', earfcnButton, false );
+    document.getElementById("freqButton").addEventListener('click', freqButton, false );
 
   </script>
 </head>

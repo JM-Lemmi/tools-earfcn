@@ -4,18 +4,19 @@
   <meta charset="utf-8">
   <title>LTE EARFCN Calculator</title>
   <script>var exports = {};</script>
-  <script src="./lte-earfcn-calculator.min.js" type="module"></script>
-  <script>
+  <script src="./lte-earfcn-calculator.js" type="module"></script>
+  <script type="module">
+    import LTE from "./lte-earfcn-calculator.js";
+
     function earfcnButton() {
-        var earfcn = document.getElementById('earfcn').value;
+        let earfcn = document.getElementById('earfcn').value;
         document.getElementById('freq').value = LTE.earfcnToFreq(earfcn);
     }
 
     function freqButton() {
-        band = document.querySelector('band').value;
-        frequency = document.querySelector('freq').value; // MHz
-        earfcn = LTE.freqToEarfcnByBand(band, frequency);
-        document.getElementById('earfcn').value = earfcn;
+        let band = document.getElementById('band').value;
+        let frequency = document.getElementById('freq').value;
+        document.getElementById('earfcn').value = LTE.freqToEarfcnByBand(band, frequency);
     }
 
     document.getElementById("earfcnButton").addEventListener('click', earfcnButton() );
